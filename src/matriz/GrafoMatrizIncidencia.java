@@ -10,14 +10,11 @@ public class GrafoMatrizIncidencia {
     private int[][] matrizAdjacencia;
 
     public void matrizNaoOrientada() {
-        System.out.println("Informe qtde de vertices: ");
-        qtdeVertice = scanner.nextInt();
-        System.out.println("Informe qtde de arestas: ");
-        qtdeArestas = scanner.nextInt();
+        pegarInformacao();
         matrizAdjacencia = new int[qtdeVertice][qtdeArestas];// vertice | aresta
-        for (int i = 0; i < matrizAdjacencia.length; i++) {
-            for (int j = 0; j < matrizAdjacencia.length; j++) {
-                System.out.println("Vertice " + (i + 1) + " se liga com a aresta" + (j + 1));
+        for (int i = 0; i < qtdeVertice; i++) {
+            for (int j = 0; j < qtdeArestas; j++) {
+                System.out.printf("Vertice %d se liga com a aresta %d\n", i+1, j+1);
                 System.out.println("s - sim | n - não");
                 char op = scanner.next().charAt(0);
                 switch (op) {
@@ -34,14 +31,11 @@ public class GrafoMatrizIncidencia {
     }
 
     public void matrizOrientada() {
-        System.out.println("Informe qtde de vertices: ");
-        qtdeVertice = scanner.nextInt();
-        System.out.println("Informe qtde de arestas: ");
-        qtdeArestas = scanner.nextInt();
+        pegarInformacao();
         matrizAdjacencia = new int[qtdeVertice][qtdeArestas];// vertice | aresta
-        for (int i = 0; i < matrizAdjacencia.length; i++) {
-            for (int j = 0; j < matrizAdjacencia.length; j++) {
-                System.out.println("Vertice " + (i + 1) + " se liga com a aresta" + (j + 1));
+        for (int i = 0; i < qtdeVertice; i++) {
+            for (int j = 0; j < qtdeArestas; j++) {
+                System.out.printf("Vertice %d se liga com a aresta %d\n", i+1, j+1);
                 System.out.println("s - sim | n - não");
                 char op = scanner.next().charAt(0);
                 switch (op) {
@@ -57,10 +51,17 @@ public class GrafoMatrizIncidencia {
         }
     }
 
+    private void pegarInformacao(){
+        System.out.println("Informe qtde de vertices: ");
+        qtdeVertice = scanner.nextInt();
+        System.out.println("Informe qtde de arestas: ");
+        qtdeArestas = scanner.nextInt();
+    }
+
     public void imprimirMatriz() {
         if(matrizAdjacencia != null){
-            for (int i = 0; i < matrizAdjacencia.length; i++) {
-                for (int j = 0; j < matrizAdjacencia.length; j++) {
+            for (int i = 0; i < qtdeVertice; i++) {
+                for (int j = 0; j < qtdeArestas; j++) {
                     System.out.print(matrizAdjacencia[i][j] + " ");
                 }
                 System.out.println();

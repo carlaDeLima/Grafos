@@ -1,9 +1,9 @@
-import java.util.Scanner;
-import java.util.concurrent.BrokenBarrierException;
-
 import lista.GrafoListaAdjacencia;
+import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
 import matriz.GrafoMatrizIncidencia;
+
+import java.util.Scanner;
 
 public class Principal {
 
@@ -48,25 +48,25 @@ public class Principal {
                 }
                 break;
             case 2:
-                GrafoListaAdjacencia grafoLista = new GrafoListaAdjacencia();
+                GrafoListaAdjacencia grafoListaAdjacencia = new GrafoListaAdjacencia();
                 System.out.println("LISTA DE ADJACÊNCIAS");
                 System.out.println("Lista não orientada - 1");
                 System.out.println("Lista orientada - 2");
                 System.out.println("Lista orientada poderada - 3");
                 System.out.println("Imprimir lista - 4");
-                int opLista = scanner.nextInt();
-                switch (opLista) {
+                int opListaAdjacencia = scanner.nextInt();
+                switch (opListaAdjacencia) {
                     case 1:
-                        grafoLista.listaNaoOrientada();
+                        grafoListaAdjacencia.listaNaoOrientada();
                         break;
                     case 2:
-                        grafoLista.listaOrientada();
+                        grafoListaAdjacencia.listaOrientada();
                         break;
                     case 3:
-                        grafoLista.listaOrientadaPoderada();
+                        grafoListaAdjacencia.listaOrientadaPoderada();
                         break;
                     case 4:
-                        grafoLista.imprimirLista();
+                        grafoListaAdjacencia.imprimirLista();
                         break;
                     default:
                         break;
@@ -77,8 +77,7 @@ public class Principal {
                 System.out.println("MATRIZ DE INCIDÊNCIA");
                 System.out.println("Matriz não orientada - 1");
                 System.out.println("Matriz orientada - 2");
-                //System.out.println("Matriz orientada poderada - 3");
-                System.out.println("Imprimir matriz - 4");
+                System.out.println("Imprimir matriz - 3");
                 int opGrafoMatrizIncidencia = scanner.nextInt();
                 switch (opGrafoMatrizIncidencia) {
                     case 1:
@@ -87,16 +86,27 @@ public class Principal {
                     case 2:
                         grafoMatrizIncidencia.matrizOrientada();
                         break;
-                    /*case 3:
-                        grafoMatrizIncidencia.matrizOrientadaPoderada();
-                        break;*/
-                    case 4:
+                    case 3:
                         grafoMatrizIncidencia.imprimirMatriz();
                         break;
                 }
                 break;
             case 4:
+                GrafoListaIndexada grafoListaIndexada = new GrafoListaIndexada();
                 System.out.println("LISTA INDEXADA");
+                System.out.println("Lista orientada poderada - 1");
+                System.out.println("Imprimir lista - 2");
+                int opListaIndexada = scanner.nextInt();
+                switch (opListaIndexada) {
+                    case 1:
+                        grafoListaIndexada.listaOrientadaPoderada();
+                        break;
+                    case 2:
+                        //grafoListaIndexada.imprimirLista();
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
