@@ -27,10 +27,10 @@ public class ListaSecundariaIndexada {
             System.err.println("Lista vazia");
         }
         while (aux != null) {
-            System.out.println(aux.getValor() + " ");
+            System.err.print(aux.getValor() + " ");
             aux = aux.getProx();
         }
-
+        System.out.println();
     }
 
     public boolean buscarVertice(int vertice) {

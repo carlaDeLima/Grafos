@@ -5,18 +5,18 @@ import java.util.Scanner;
 public class GrafoListaIndexada {
     Scanner scanner = new Scanner(System.in);
 
-    ListaIndexada lista =  new ListaIndexada();
+    ListaIndexada listaIndexada =  new ListaIndexada();
 
     public void listaOrientadaPoderada(){
         int op = 0;
         while(op == 0){
             System.out.println("Inserir vertice: ");
             int valor = scanner.nextInt();
-            lista.inserirFinal(valor, 1);
-            System.out.println("Continuar - 0\nSair - 1");
+            listaIndexada.inserirFinal(valor, 1);
+            System.out.println("Continuar - 0 | Sair - 1");
             op = scanner.nextInt();
         }
-        NoIndexada aux = lista.getPrimeiro();
+        NoIndexada aux = listaIndexada.getPrimeiro();
         while (aux != null) {
             ListaSecundariaIndexada listaSecundariaIndexada = new ListaSecundariaIndexada();
             System.out.println("Esse vertice " + aux.getValorGrafo() + " aponta para quantos outros?");
@@ -24,7 +24,7 @@ public class GrafoListaIndexada {
             while (qtde > 0) {
                 System.out.println("Inserir vertice: ");
                 int valorListaMatriz = scanner.nextInt();
-                while(!lista.buscarVertice(valorListaMatriz)){
+                while(!listaIndexada.buscarVertice(valorListaMatriz)){
                     System.out.println("Inserir vertice: ");
                     valorListaMatriz = scanner.nextInt();
                 }
@@ -37,6 +37,6 @@ public class GrafoListaIndexada {
     }
 
     public void imprimirLista(){
-        lista.exibir();
+        listaIndexada.exibir();
     }
 }

@@ -28,6 +28,7 @@ public class ListaIndexada {
         }
         while (aux != null) {
             System.out.println(aux.getValorGrafo() + " ");
+            aux.getListaSecundariaIndexada().exibir();
             aux = aux.getProx();
         }
 
