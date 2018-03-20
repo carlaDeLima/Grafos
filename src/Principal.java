@@ -1,4 +1,4 @@
-import lista.GrafoListaAdjacencia;
+import lista_adjacencia.GrafoListaAdjacencia;
 import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
 import matriz.GrafoMatrizIncidencia;
@@ -8,115 +8,136 @@ import java.util.Scanner;
 public class Principal {
 
     static Scanner scanner = new Scanner(System.in);
+    private static int opcao;
 
     public static void main(String[] args) {
-
-        int opcao;
         int continuar = 0;
 
-        opcao = getMenu();
-
         while (continuar == 0) {
+            getMenu();
             switch (opcao) {
                 case 1:
+                    int continuarOp1 = 1;
                     GrafoMatrizAdjacencia grafoMatrizAdjacencia = new GrafoMatrizAdjacencia();
-                    int opGrafoMatriz = menuMatrizAdjacencia();
-                    switch (opGrafoMatriz) {
-                        case 1:
-                            grafoMatrizAdjacencia.matrizNaoOrientada();
-                            break;
-                        case 2:
-                            grafoMatrizAdjacencia.matrizOrientada();
-                            break;
-                        case 3:
-                            grafoMatrizAdjacencia.matrizOrientadaPoderada();
-                            break;
-                        case 4:
-                            grafoMatrizAdjacencia.imprimirMatriz();
-                            break;
-                        case 5:
-                            //grafoMatrizAdjacencia.info();
-                            break;
-                        default:
-                            System.err.println("Essa opção não existe");
-                            break;
+                    while (continuarOp1 == 1) {
+                        int opGrafoMatriz = menuMatrizAdjacencia();
+                        switch (opGrafoMatriz) {
+                            case 1:
+                                grafoMatrizAdjacencia.matrizNaoOrientada();
+                                break;
+                            case 2:
+                                grafoMatrizAdjacencia.matrizOrientada();
+                                break;
+                            case 3:
+                                grafoMatrizAdjacencia.matrizOrientadaPoderada();
+                                break;
+                            case 4:
+                                grafoMatrizAdjacencia.imprimirMatriz();
+                                break;
+                            case 5:
+                                grafoMatrizAdjacencia.info();
+                                break;
+                            case 0:
+                                continuarOp1 = 0;
+                                break;
+                            default:
+                                System.err.println("Essa opção não existe");
+                                break;
+                        }
                     }
                     break;
                 case 2:
+                    int continuarOp2 = 1;
                     GrafoListaAdjacencia grafoListaAdjacencia = new GrafoListaAdjacencia();
-                    int opListaAdjacencia = menuListaAdjacencia();
-                    switch (opListaAdjacencia) {
-                        case 1:
-                            grafoListaAdjacencia.listaNaoOrientada();
-                            break;
-                        case 2:
-                            grafoListaAdjacencia.listaOrientada();
-                            break;
-                        case 3:
-                            grafoListaAdjacencia.listaOrientadaPoderada();
-                            break;
-                        case 4:
-                            grafoListaAdjacencia.imprimirLista();
-                            break;
-                        case 5:
-                            //grafoListaAdjacencia.info();
-                            break;
-                        default:
-                            System.err.println("Essa opção não existe");
-                            break;
+                    while (continuarOp2 == 1) {
+                        int opListaAdjacencia = menuListaAdjacencia();
+                        switch (opListaAdjacencia) {
+                            case 1:
+                                grafoListaAdjacencia.listaNaoOrientada();
+                                break;
+                            case 2:
+                                grafoListaAdjacencia.listaOrientada();
+                                break;
+                            case 3:
+                                grafoListaAdjacencia.listaOrientadaPonderada();
+                                break;
+                            case 4:
+                                grafoListaAdjacencia.imprimirLista();
+                                break;
+                            case 5:
+                                grafoListaAdjacencia.info();
+                                break;
+                            case 0:
+                                continuarOp2 = 0;
+                                break;
+                            default:
+                                System.err.println("Essa opção não existe");
+                                break;
+                        }
                     }
                     break;
                 case 3:
+                    int continuarOp3 = 1;
                     GrafoMatrizIncidencia grafoMatrizIncidencia = new GrafoMatrizIncidencia();
-                    int opGrafoMatrizIncidencia = menuMatrizIncidencia();
-                    switch (opGrafoMatrizIncidencia) {
-                        case 1:
-                            grafoMatrizIncidencia.matrizNaoOrientada();
-                            break;
-                        case 2:
-                            grafoMatrizIncidencia.matrizOrientada();
-                            break;
-                        case 3:
-                            grafoMatrizIncidencia.imprimirMatriz();
-                            break;
-                        case 4:
-                            //grafoMatrizIncidencia.info();
-                            break;
-                        default:
-                            System.err.println("Essa opção não existe");
-                            break;
+                    while (continuarOp3 == 1) {
+                        int opGrafoMatrizIncidencia = menuMatrizIncidencia();
+                        switch (opGrafoMatrizIncidencia) {
+                            case 1:
+                                grafoMatrizIncidencia.matrizNaoOrientada();
+                                break;
+                            case 2:
+                                grafoMatrizIncidencia.matrizOrientada();
+                                break;
+                            case 3:
+                                grafoMatrizIncidencia.imprimirMatriz();
+                                break;
+                            case 4:
+                                //grafoMatrizIncidencia.info();
+                                break;
+                            case 0:
+                                continuarOp3 = 0;
+                                break;
+                            default:
+                                System.err.println("Essa opção não existe");
+                                break;
+                        }
                     }
                     break;
                 case 4:
+                    int continuarOp4 = 1;
                     GrafoListaIndexada grafoListaIndexada = new GrafoListaIndexada();
-                    int opListaIndexada = menuListaIncidencia();
-                    switch (opListaIndexada) {
-                        case 1:
-                            grafoListaIndexada.listaOrientadaPoderada();
-                            grafoListaIndexada.imprimirLista();
-                            break;
-                        case 2:
-                            grafoListaIndexada.imprimirLista();
-                            break;
-                        case 3:
-                            //grafoListaIndexada.info();
-                            break;
-                        default:
-                            System.err.println("Essa opção não existe");
-                            break;
+                    while (continuarOp4 == 1) {
+                        int opListaIndexada = menuListaIncidencia();
+                        switch (opListaIndexada) {
+                            case 1:
+                                grafoListaIndexada.listaOrientadaPoderada();
+                                grafoListaIndexada.imprimirLista();
+                                break;
+                            case 2:
+                                grafoListaIndexada.imprimirLista();
+                                break;
+                            case 3:
+                                //grafoListaIndexada.info();
+                                break;
+                            case 0:
+                                continuarOp4 = 0;
+                                break;
+                            default:
+                                System.err.println("Essa opção não existe");
+                                break;
+                        }
                     }
                     break;
                 default:
                     System.err.println("Essa opção não existe");
-                    getMenu();
                     break;
             }
-            getMenu();
+            System.out.println("Deseja continuar?\nContinuar - 0\nSair - 1");
+            continuar = scanner.nextInt();
         }
     }
 
-    private static int getMenu() {
-        int opcao;
+    private static void getMenu() {
         System.out.println("Matriz de Adjacências - 1");
 
         System.out.println("Lista de Adjacências - 2");
@@ -127,7 +148,6 @@ public class Principal {
 
         System.out.println("Informe opção:");
         opcao = scanner.nextInt();
-        return opcao;
     }
 
     private static int menuMatrizAdjacencia() {
@@ -138,6 +158,7 @@ public class Principal {
         System.out.println("Matriz orientada poderada - 3");
         System.out.println("Imprimir matriz - 4");
         System.out.println("Informações que o grafo pode dar - 5");
+        System.out.println("voltar menu principal - 0");
         opGrafoMatriz = scanner.nextInt();
         return opGrafoMatriz;
     }
@@ -148,8 +169,9 @@ public class Principal {
         System.out.println("Lista não orientada - 1");
         System.out.println("Lista orientada - 2");
         System.out.println("Lista orientada poderada - 3");
-        System.out.println("Imprimir lista - 4");
+        System.out.println("Imprimir lista_adjacencia - 4");
         System.out.println("Informações que o grafo pode dar - 5");
+        System.out.println("voltar menu principal - 0");
         opListaAdjacencia = scanner.nextInt();
         return opListaAdjacencia;
     }
@@ -161,6 +183,7 @@ public class Principal {
         System.out.println("Matriz orientada - 2");
         System.out.println("Imprimir matriz - 3");
         System.out.println("Informações que o grafo pode dar - 4");
+        System.out.println("voltar menu principal - 0");
         opGrafoMatrizIncidencia = scanner.nextInt();
         return opGrafoMatrizIncidencia;
     }
@@ -169,8 +192,9 @@ public class Principal {
         int opListaIndexada;
         System.out.println("LISTA INDEXADA");
         System.out.println("Lista orientada poderada - 1");
-        System.out.println("Imprimir lista - 2");
+        System.out.println("Imprimir lista_adjacencia - 2");
         System.out.println("Informações que o grafo pode dar - 3");
+        System.out.println("voltar menu principal - 0");
         opListaIndexada = scanner.nextInt();
         return opListaIndexada;
     }

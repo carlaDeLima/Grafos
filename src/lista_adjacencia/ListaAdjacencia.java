@@ -1,4 +1,4 @@
-package lista;
+package lista_adjacencia;
 
 public class ListaAdjacencia {
 
@@ -28,10 +28,9 @@ public class ListaAdjacencia {
         }
         while (aux != null) {
             System.out.println(aux.getValor() + " ");
-            aux.getListaMatriz().exibir();
+            aux.getLista().exibir();
             aux = aux.getProx();
         }
-
     }
 
     public boolean buscarVertice(int vertice) {
@@ -39,6 +38,19 @@ public class ListaAdjacencia {
         while (aux != null) {
             if(aux.getValor() == vertice){
                 return true;
+            }
+            aux = aux.getProx();
+        }
+        return false;
+    }
+
+    public boolean buscarVerticeNumero(int vertice, int primeiroVertice) {
+        NoAdjacencia aux = primeiro;
+        while (aux != null) {
+            if(aux.getValor() == vertice){
+                if(aux.getLista().buscarVertice(primeiroVertice)) {
+                    return true;
+                }
             }
             aux = aux.getProx();
         }

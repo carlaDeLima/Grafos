@@ -1,13 +1,13 @@
-package lista;
+package lista_adjacencia;
 public class NoAdjacencia {
 
     private int valor;
-    private ListaSecundariaAdjacencia listaMatriz;
+    private ListaSecundariaAdjacencia lista;
     private NoAdjacencia prox;
 
     public NoAdjacencia(int valor) {
         this.valor = valor;
-        this.listaMatriz = null;
+        this.lista = null;
         this.prox = null;
     }
 
@@ -19,12 +19,12 @@ public class NoAdjacencia {
         this.valor = valor;
     }
 
-    public ListaSecundariaAdjacencia getListaMatriz() {
-        return listaMatriz;
+    public ListaSecundariaAdjacencia getLista() {
+        return lista;
     }
 
-    public void setListaMatriz(ListaSecundariaAdjacencia listaMatriz) {
-        this.listaMatriz = listaMatriz;
+    public void setLista(ListaSecundariaAdjacencia lista) {
+        this.lista = lista;
     }
 
     public NoAdjacencia getProx() {

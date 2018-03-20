@@ -1,4 +1,4 @@
-package lista;
+package lista_adjacencia;
 
 public class ListaSecundariaAdjacencia {
 
@@ -32,6 +32,17 @@ public class ListaSecundariaAdjacencia {
         }
         System.out.println();
 
+    }
+
+    public boolean buscarVertice(int vertice) {
+        NoListaSecundariaAdjacencia aux = primeiro;
+        while (aux != null) {
+            if(aux.getValor() == vertice){
+                return true;
+            }
+            aux = aux.getProx();
+        }
+        return false;
     }
 
     public NoListaSecundariaAdjacencia getPrimeiro() {

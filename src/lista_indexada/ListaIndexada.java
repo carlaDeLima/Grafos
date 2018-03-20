@@ -9,8 +9,8 @@ public class ListaIndexada {
         this.primeiro = null;
     }
 
-    public void inserirFinal(int valorGrafo, int posInicio) {
-        NoIndexada novo = new NoIndexada(valorGrafo, posInicio);
+    public void inserirFinal(int valorGrafo) {
+        NoIndexada novo = new NoIndexada(valorGrafo);
 
         if (primeiro == null) {
             primeiro = novo;
@@ -23,21 +23,20 @@ public class ListaIndexada {
 
     public void exibir() {
         NoIndexada aux = primeiro;
-        if(primeiro == null){
+        if (primeiro == null) {
             System.err.println("Lista vazia");
         }
         while (aux != null) {
-            System.out.println(aux.getValorGrafo() + " ");
+            System.out.printf("Valor: %d | Posicao: %d", aux.getValorGrafo(), aux.getPosInicio());
             aux.getListaSecundariaIndexada().exibir();
             aux = aux.getProx();
         }
-
     }
 
     public boolean buscarVertice(int vertice) {
         NoIndexada aux = primeiro;
         while (aux != null) {
-            if(aux.getValorGrafo() == vertice){
+            if (aux.getValorGrafo() == vertice) {
                 return true;
             }
             aux = aux.getProx();

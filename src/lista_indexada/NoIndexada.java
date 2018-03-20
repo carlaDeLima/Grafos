@@ -3,14 +3,14 @@ package lista_indexada;
 public class NoIndexada {
 
     private int valorGrafo;
-    private int posInicio;
+    private Integer posInicio;
     private ListaSecundariaIndexada listaSecundariaIndexada;
     private Integer fim;
     private NoIndexada prox;
 
-    public NoIndexada(int valorGrafo, int posInicio) {
+    public NoIndexada(int valorGrafo) {
         this.valorGrafo = valorGrafo;
-        this.posInicio = posInicio;
+        this.posInicio = null;
         this.listaSecundariaIndexada = null;
         this.fim = null;
         this.prox = null;
@@ -24,11 +24,11 @@ public class NoIndexada {
         this.valorGrafo = valorGrafo;
     }
 
-    public int getPosInicio() {
+    public Integer getPosInicio() {
         return posInicio;
     }
 
-    public void setPosInicio(int posInicio) {
+    public void setPosInicio(Integer posInicio) {
         this.posInicio = posInicio;
     }
 

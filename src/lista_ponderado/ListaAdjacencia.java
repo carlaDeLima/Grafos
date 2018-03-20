@@ -28,7 +28,7 @@ public class ListaAdjacencia {
         }
         while (aux != null) {
             System.out.println(aux.getValor() + " ");
-            aux.getListaMatriz().exibir();
+            aux.getLista().exibir();
             aux = aux.getProx();
         }
 

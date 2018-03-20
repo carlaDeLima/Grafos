@@ -1,4 +1,4 @@
-package lista;
+package lista_adjacencia;
 public class NoListaSecundariaAdjacencia {
 
     private int valor;
