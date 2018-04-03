@@ -24,7 +24,7 @@ public class ListaIndexada {
     public void exibir() {
         NoIndexada aux = primeiro;
         if (primeiro == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux != null) {
             System.out.printf("Valor: %d | Posicao: %d", aux.getValorGrafo(), aux.getPosInicio());

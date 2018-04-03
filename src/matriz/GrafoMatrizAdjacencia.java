@@ -94,7 +94,6 @@ public class GrafoMatrizAdjacencia {
         System.out.printf("Grafo de ordem: %d\n", getQtdeVertice());
         qtdeArestas();
         eOrientado();
-        eEuleriano();
         eGrafoSimples();
     }
 
@@ -127,6 +126,7 @@ public class GrafoMatrizAdjacencia {
             System.out.println("Não ponderado");
             grauDosVertices();
             arcosNaoOrientado();
+            eEuleriano();
         } else {
             System.out.println("Grafo Orientado ou Dígrafo");
             arcosOrientado();

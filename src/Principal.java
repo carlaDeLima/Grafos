@@ -1,3 +1,4 @@
+import busca_largura.BuscaLargura;
 import lista_adjacencia.GrafoListaAdjacencia;
 import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
@@ -67,6 +68,13 @@ public class Principal {
                             case 5:
                                 grafoListaAdjacencia.info();
                                 break;
+                            case 6://busca em largura
+                                BuscaLargura buscaLargura = new BuscaLargura();
+                                System.out.println("Informe vertice inicial: ");
+                                int vertice = scanner.nextInt();
+                                buscaLargura.buscar(grafoListaAdjacencia, vertice);
+                                buscaLargura.imprimir();
+                                break;
                             case 0:
                                 continuarOp2 = 0;
                                 break;
@@ -92,7 +100,7 @@ public class Principal {
                                 grafoMatrizIncidencia.imprimirMatriz();
                                 break;
                             case 4:
-                                //grafoMatrizIncidencia.info();
+                                grafoMatrizIncidencia.info();
                                 break;
                             case 0:
                                 continuarOp3 = 0;
@@ -107,16 +115,20 @@ public class Principal {
                     int continuarOp4 = 1;
                     GrafoListaIndexada grafoListaIndexada = new GrafoListaIndexada();
                     while (continuarOp4 == 1) {
-                        int opListaIndexada = menuListaIncidencia();
+                        int opListaIndexada = menuListaIndexada();
                         switch (opListaIndexada) {
-                            case 1:
-                                grafoListaIndexada.listaOrientadaPoderada();
+                            case 1://nao orientda
+                                grafoListaIndexada.listaNaoOrientada();
                                 grafoListaIndexada.imprimirLista();
                                 break;
-                            case 2:
+                            case 2://orientada
+                                break;
+                            case 3://orientda ponderada
+                                break;
+                            case 4://imprimir lista
                                 grafoListaIndexada.imprimirLista();
                                 break;
-                            case 3:
+                            case 5://info lista
                                 //grafoListaIndexada.info();
                                 break;
                             case 0:
@@ -139,13 +151,9 @@ public class Principal {
 
     private static void getMenu() {
         System.out.println("Matriz de Adjacências - 1");
-
         System.out.println("Lista de Adjacências - 2");
-
         System.out.println("Matriz de Incidência - 3");
-
         System.out.println("Lista de Indexada - 4");
-
         System.out.println("Informe opção:");
         opcao = scanner.nextInt();
     }
@@ -171,6 +179,7 @@ public class Principal {
         System.out.println("Lista orientada poderada - 3");
         System.out.println("Imprimir lista_adjacencia - 4");
         System.out.println("Informações que o grafo pode dar - 5");
+        System.out.println("Busca em largura - 6");
         System.out.println("voltar menu principal - 0");
         opListaAdjacencia = scanner.nextInt();
         return opListaAdjacencia;
@@ -188,12 +197,14 @@ public class Principal {
         return opGrafoMatrizIncidencia;
     }
 
-    private static int menuListaIncidencia() {
+    private static int menuListaIndexada() {
         int opListaIndexada;
         System.out.println("LISTA INDEXADA");
-        System.out.println("Lista orientada poderada - 1");
-        System.out.println("Imprimir lista_adjacencia - 2");
-        System.out.println("Informações que o grafo pode dar - 3");
+        System.out.println("Lista não orientada - 1");
+        System.out.println("Lista orientada - 2");
+        System.out.println("Lista orientada ponderada - 3");
+        System.out.println("Imprimir Lista_Indexada - 4");
+        System.out.println("Informações que o grafo pode dar - 5");
         System.out.println("voltar menu principal - 0");
         opListaIndexada = scanner.nextInt();
         return opListaIndexada;

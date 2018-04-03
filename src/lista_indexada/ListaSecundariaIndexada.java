@@ -24,7 +24,7 @@ public class ListaSecundariaIndexada {
     public void exibir() {
         NoSecundarioIndexada aux = primeiro;
         if(primeiro == null){
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux != null) {
             System.err.print(aux.getValor() + " ");

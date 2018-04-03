@@ -5,6 +5,8 @@ public class ListaSecundariaAdjacencia {
     private NoListaSecundariaAdjacencia primeiro;
     private NoListaSecundariaAdjacencia ultimo;
 
+    private int size = getSize();
+
     public ListaSecundariaAdjacencia() {
         this.primeiro = null;
     }
@@ -59,6 +61,24 @@ public class ListaSecundariaAdjacencia {
 
     public void setUltimo(NoListaSecundariaAdjacencia ultimo) {
         this.ultimo = ultimo;
+    }
+
+    //tamanmho grafo
+    private int getSize() {
+        NoListaSecundariaAdjacencia aux = primeiro;
+        int cont = 0;
+        if(primeiro == null){
+            return cont;
+        }
+        while (aux != null) {
+            cont++;
+            aux = aux.getProx();
+        }
+        return cont;
+    }
+
+    public int size(){
+        return this.size;
     }
 
 }

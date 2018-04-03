@@ -7,7 +7,7 @@ public class GrafoListaIndexada {
 
     ListaIndexada listaIndexada = new ListaIndexada();
 
-    public void listaOrientadaPoderada() {
+    public void listaNaoOrientada() {
         int op = 0;
         int pos = 0;
         while (op == 0) {
@@ -44,7 +44,35 @@ public class GrafoListaIndexada {
         }
     }
 
+    public void listaOrientada(){}
+
+    public void listaOrientadaPonderada(){}
+
     public void imprimirLista() {
         listaIndexada.exibir();
+    }
+
+    public void info(){
+        ordemGrafo();
+        //qtdeArestas();
+        //eOrientado();
+        //  |-> arcos
+        //  |-> fontes e sumidouros(orientado)
+        //  |-> grau do vertive
+        //  |-> euleriano(não orientado)
+        //eGrafoSimples();
+    }
+
+    private void ordemGrafo() {
+        NoIndexada aux = listaIndexada.getPrimeiro();
+        if (aux == null) {
+            System.err.println("Fila vazia");
+        }
+        int cont = 0;
+        while (aux != null) {
+            cont++;
+            aux = aux.getProx();
+        }
+        System.out.printf("Grafo de ordem: %d\n", cont);
     }
 }

@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class GrafoListaAdjacencia {
     Scanner scanner = new Scanner(System.in);
 
-    ListaAdjacencia lista = new ListaAdjacencia();
-    ListaSecundariaAdjacencia listaSecundariaAdjacencia = new ListaSecundariaAdjacencia();
+    public ListaAdjacencia lista = new ListaAdjacencia();
+    public ListaSecundariaAdjacencia listaSecundariaAdjacencia = new ListaSecundariaAdjacencia();
 
-    lista_ponderado.ListaAdjacencia listaPonderado = new lista_ponderado.ListaAdjacencia();
+    public lista_ponderado.ListaAdjacencia listaPonderado = new lista_ponderado.ListaAdjacencia();
+
+    private int size = getSize();
 
     public void listaNaoOrientada() {
         int op = 0;
@@ -141,15 +143,13 @@ public class GrafoListaAdjacencia {
     public void info() {
         ordemGrafo();
         eOrientado();
-        eEuleriano();
         eGrafoSimples();
     }
-
 
     private void ordemGrafo() {
         NoAdjacencia aux = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         int cont = 0;
         while (aux != null) {
@@ -163,7 +163,7 @@ public class GrafoListaAdjacencia {
         int cont = 0;
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             NoListaSecundariaAdjacencia aux2 = aux1.getLista().getPrimeiro();
@@ -180,7 +180,7 @@ public class GrafoListaAdjacencia {
         int cont = 0;
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             NoListaSecundariaAdjacencia aux2 = aux1.getLista().getPrimeiro();
@@ -195,7 +195,7 @@ public class GrafoListaAdjacencia {
 
     private void eOrientado() {
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         } else {
             int valor = lista.getPrimeiro().getLista().getPrimeiro().getValor();
             if (!lista.buscarVerticeNumero(valor, lista.getPrimeiro().getValor())) {
@@ -203,11 +203,13 @@ public class GrafoListaAdjacencia {
                 qtdeArestasOrientado();
                 arcosOrientado();
                 qtdeFontesSumidouros();
+                //grau dos vertices
             } else {
                 System.out.println("Grafo Não Orientado");
                 qtdeArestasNaoOrientado();
                 arcosNaoOrientado();
                 grauDosVertices();
+                eEuleriano();
             }
         }
     }
@@ -215,7 +217,7 @@ public class GrafoListaAdjacencia {
     private void grauDosVertices() {
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             int cont = 0;
@@ -237,7 +239,7 @@ public class GrafoListaAdjacencia {
     private void arcosOrientado() {
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (aux1 == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             NoListaSecundariaAdjacencia aux2 = aux1.getLista().getPrimeiro();
@@ -255,7 +257,7 @@ public class GrafoListaAdjacencia {
     private void arcosNaoOrientado() {
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (aux1 == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             NoListaSecundariaAdjacencia aux2 = aux1.getLista().getPrimeiro();
@@ -276,7 +278,7 @@ public class GrafoListaAdjacencia {
 
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (aux1 == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         int cont = 0;
         while (aux1 != null) {
@@ -306,7 +308,7 @@ public class GrafoListaAdjacencia {
     private void eEuleriano() {
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             int cont = 0;
@@ -334,7 +336,7 @@ public class GrafoListaAdjacencia {
         int contLacos = 0;
         NoAdjacencia aux1 = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux1 != null) {
             ///////////////////
@@ -357,5 +359,23 @@ public class GrafoListaAdjacencia {
         } else {
             System.out.println("Grafo Simples");
         }
+    }
+
+    //tamanmho grafo
+    private int getSize() {
+        NoAdjacencia aux = lista.getPrimeiro();
+        if (lista.getPrimeiro() == null) {
+            return 0;
+        }
+        int cont = 0;
+        while (aux != null) {
+            cont++;
+            aux = aux.getProx();
+        }
+        return cont;
+    }
+
+    public int size(){
+        return this.size;
     }
 }

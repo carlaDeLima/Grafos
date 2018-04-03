@@ -24,7 +24,7 @@ public class ListaAdjacencia {
     public void exibir() {
         NoAdjacencia aux = primeiro;
         if(primeiro == null){
-            System.err.println("Lista vazia");
+            System.err.println("Fila vazia");
         }
         while (aux != null) {
             System.out.println(aux.getValor() + " ");
