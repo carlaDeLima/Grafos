@@ -1,4 +1,5 @@
 package lista_adjacencia;
+
 public class NoAdjacencia {
 
     private int valor;

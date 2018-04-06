@@ -8,11 +8,11 @@ public class Lista {
         this.primeiro = null;
     }
 
-    void removerInicio(){
+    void removerInicio() {
         No aux = primeiro;
         if (primeiro == null) {
             System.err.println("Fila vazia");
-        }else {
+        } else {
             primeiro = primeiro.getProx();
         }
     }
@@ -31,7 +31,7 @@ public class Lista {
 
     public void exibir() {
         No aux = primeiro;
-        if(primeiro == null){
+        if (primeiro == null) {
             System.err.println("Fila vazia");
         }
         while (aux != null) {

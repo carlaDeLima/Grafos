@@ -9,11 +9,11 @@ public class Fila {
         this.primeiro = null;
     }
 
-    public void removerInicio(){
+    public void removerInicio() {
         NoFila aux = primeiro;
         if (primeiro == null) {
             System.err.println("Fila vazia");
-        }else {
+        } else {
             primeiro = primeiro.getProx();
         }
     }
@@ -32,7 +32,7 @@ public class Fila {
 
     public void exibir() {
         NoFila aux = primeiro;
-        if(primeiro == null){
+        if (primeiro == null) {
             System.err.println("Fila vazia");
         }
         while (aux != null) {

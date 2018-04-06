@@ -44,15 +44,17 @@ public class GrafoListaIndexada {
         }
     }
 
-    public void listaOrientada(){}
+    public void listaOrientada() {
+    }
 
-    public void listaOrientadaPonderada(){}
+    public void listaOrientadaPonderada() {
+    }
 
     public void imprimirLista() {
         listaIndexada.exibir();
     }
 
-    public void info(){
+    public void info() {
         ordemGrafo();
         //qtdeArestas();
         //eOrientado();

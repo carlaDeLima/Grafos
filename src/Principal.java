@@ -73,7 +73,7 @@ public class Principal {
                                 System.out.println("Informe vertice inicial: ");
                                 int vertice = scanner.nextInt();
                                 buscaLargura.buscar(grafoListaAdjacencia, vertice);
-                                buscaLargura.imprimir();
+                                //buscaLargura.imprimir();
                                 break;
                             case 0:
                                 continuarOp2 = 0;

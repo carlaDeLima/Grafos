@@ -3,11 +3,15 @@ package busca_largura;
 import lista_adjacencia.GrafoListaAdjacencia;
 
 public class BuscaLargura {
-    private Cor cor [];
-    private Integer distancia [];
-    private Integer pai [];
+    private Cor cor[];
+    private Integer distancia[];
+    private Integer pai[];
+    private GrafoListaAdjacencia grafoAux;
 
-    public void buscar(GrafoListaAdjacencia g, int s){
+    public void buscar(GrafoListaAdjacencia g, int s) {
+
+        grafoAux = g;
+        s = s - 1;
 
         cor = new Cor[g.size()];
         distancia = new Integer[g.size()];
@@ -24,10 +28,15 @@ public class BuscaLargura {
         distancia[s] = 0;
         pai[s] = null;
         fila.inserirFinal(s);
-        while (fila.getPrimeiro() != null){
+       /* //g.lista.buscarVerticeNumero(s, g.lista.getPrimeiro().getValor());
+        while (fila.getPrimeiro() != null) {
+            int aux = fila.getPrimeiro().getValor();
+
             fila.removerInicio();
             for (int v = 0; v < g.listaSecundariaAdjacencia.size(); v++) {
-                if (cor[v] == Cor.WHITE){
+//                g.lista.buscarVerticeNumero(aux,);
+//                if (v+1)
+                if (cor[v] == Cor.WHITE) {
                     cor[v] = Cor.GRAY;
                     distancia[v] = distancia[u] + 1;
                     pai[v] = u;
@@ -35,22 +44,35 @@ public class BuscaLargura {
                 }
             }
             cor[u] = Cor.BLACK;
-        }
+        }*/
+        imprimir(g);
     }
 
-    public void imprimir(){
-        System.out.println("COR");
+    public void imprimir(GrafoListaAdjacencia gAux) {
+        gAux.imprimirListaBusca();
+        System.out.println();
+        System.out.print("C\t|\t");
         for (int i = 0; i < cor.length; i++) {
-            System.out.println("cor["+i+"] = "+ cor[i]);
+            System.out.print(cor[i] + "\t|\t");
         }
-        System.out.println("DISTANCIA");
+        System.out.println();
+        System.out.print("D\t|\t");
         for (int i = 0; i < distancia.length; i++) {
-            System.out.println("distancia["+i+"] = "+ distancia[i]);
+            if (distancia[i] == Integer.MAX_VALUE) {
+                //System.out.print("dis[" + i + "] = INF\t");
+                System.out.print("INF\t\t|\t");
+            } else {
+                //System.out.print("dis[" + i + "] = " + distancia[i] + "\t");
+                System.out.print(distancia[i] + "\t\t|\t");
+            }
         }
-        System.out.println("PAI");
+        System.out.println();
+        System.out.print("P\t|\t");
         for (int i = 0; i < pai.length; i++) {
-            System.out.println("pai["+i+"] = "+ pai[i]);
+            //System.out.print("pai[" + i + "] = " + pai[i] + "\t");
+            System.out.print(pai[i] + "\t|\t");
         }
+        System.out.println();
     }
 
 }

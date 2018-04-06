@@ -23,8 +23,8 @@ public class ListaAdjacencia {
 
     public void exibir() {
         NoAdjacencia aux = primeiro;
-        if(primeiro == null){
-            System.err.println("Fila vazia");
+        if (primeiro == null) {
+            System.err.println("Lista vazia");
         }
         while (aux != null) {
             System.out.println(aux.getValor() + " ");
@@ -37,7 +37,7 @@ public class ListaAdjacencia {
     public boolean buscarVertice(int vertice) {
         NoAdjacencia aux = primeiro;
         while (aux != null) {
-            if(aux.getValor() == vertice){
+            if (aux.getValor() == vertice) {
                 return true;
             }
             aux = aux.getProx();

@@ -25,7 +25,7 @@ public class ListaSecundariaAdjacencia {
 
     void exibir() {
         NoListaSecundariaAdjacencia aux = primeiro;
-        if(primeiro == null){
+        if (primeiro == null) {
             System.err.println("null");
         }
         while (aux != null) {
@@ -39,7 +39,7 @@ public class ListaSecundariaAdjacencia {
     public boolean buscarVertice(int vertice) {
         NoListaSecundariaAdjacencia aux = primeiro;
         while (aux != null) {
-            if(aux.getValor() == vertice){
+            if (aux.getValor() == vertice) {
                 return true;
             }
             aux = aux.getProx();
@@ -67,7 +67,7 @@ public class ListaSecundariaAdjacencia {
     private int getSize() {
         NoListaSecundariaAdjacencia aux = primeiro;
         int cont = 0;
-        if(primeiro == null){
+        if (primeiro == null) {
             return cont;
         }
         while (aux != null) {
@@ -77,7 +77,7 @@ public class ListaSecundariaAdjacencia {
         return cont;
     }
 
-    public int size(){
+    public int size() {
         return this.size;
     }
 

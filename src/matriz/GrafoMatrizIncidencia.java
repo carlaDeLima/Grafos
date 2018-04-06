@@ -75,7 +75,7 @@ public class GrafoMatrizIncidencia {
         }
     }
 
-    public void info(){
+    public void info() {
         System.out.printf("Grafo de ordem %d\n", getQtdeVertice());
         System.out.printf("Qtde de arestas %d\n", getQtdeArestas());
         eOrientado();
@@ -102,10 +102,10 @@ public class GrafoMatrizIncidencia {
         }
     }
 
-    private void eOrientado(){
+    private void eOrientado() {
         for (int i = 0; i < qtdeVertice; i++) {
             for (int j = 0; j < qtdeArestas; j++) {
-                if (matrizAdjacencia[i][j] == -1){
+                if (matrizAdjacencia[i][j] == -1) {
                     System.out.println("Grafo Orientado");
                     arcosOrientado();
                     return;
@@ -140,48 +140,48 @@ public class GrafoMatrizIncidencia {
         }
     }
 
-    private void arcosNaoOrientado(){
+    private void arcosNaoOrientado() {
         for (int i = 0; i < qtdeVertice; i++) {
             int par1 = Integer.MIN_VALUE;
             int par2 = Integer.MIN_VALUE;
             int cont = 0;
             for (int j = 0; j < qtdeArestas; j++) {
-                if (matrizAdjacencia[i][j] == 1){
+                if (matrizAdjacencia[i][j] == 1) {
                     cont++;
                     par1 = i + 1;
                 } else if (matrizAdjacencia[i][j] == 1 && cont > 0) {
                     par2 = i + 1;
                 }
             }
-            if (par1 != Integer.MIN_VALUE && par2 != Integer.MIN_VALUE){
+            if (par1 != Integer.MIN_VALUE && par2 != Integer.MIN_VALUE) {
                 System.out.printf("(%d, %d)\n", par1, par2);
             }
         }
     }
 
-    private void arcosOrientado(){
+    private void arcosOrientado() {
         for (int i = 0; i < qtdeVertice; i++) {
             int parPositivo = Integer.MIN_VALUE;
             int parNegativo = Integer.MIN_VALUE;
             for (int j = 0; j < qtdeArestas; j++) {
-                if (matrizAdjacencia[i][j] == 1){
+                if (matrizAdjacencia[i][j] == 1) {
                     parPositivo = i + 1;
                 } else if (matrizAdjacencia[i][j] == -1) {
                     parNegativo = i + 1;
                 }
             }
-            if (parPositivo != Integer.MIN_VALUE && parNegativo != Integer.MIN_VALUE){
+            if (parPositivo != Integer.MIN_VALUE && parNegativo != Integer.MIN_VALUE) {
                 System.out.printf("(%d -> %d)\n", parPositivo, parNegativo);
             }
         }
     }
 
-    private void qtdeFontessumidouros(){
+    private void qtdeFontessumidouros() {
         for (int i = 0; i < qtdeVertice; i++) {
             int qtdeFontes = 0;
             int qtdeSumidouro = 0;
             for (int j = 0; j < qtdeArestas; j++) {
-                if (matrizAdjacencia[i][j] == 1){
+                if (matrizAdjacencia[i][j] == 1) {
                     qtdeFontes++;
                 } else if (matrizAdjacencia[i][j] == -1) {
                     qtdeSumidouro++;

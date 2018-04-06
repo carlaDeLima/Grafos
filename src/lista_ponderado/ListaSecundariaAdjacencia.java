@@ -23,7 +23,7 @@ public class ListaSecundariaAdjacencia {
 
     void exibir() {
         NoListaSecudanriaAdjacencia aux = primeiro;
-        if(primeiro == null){
+        if (primeiro == null) {
             System.err.println("null");
         }
         while (aux != null) {

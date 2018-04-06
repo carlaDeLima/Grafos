@@ -10,8 +10,6 @@ public class GrafoListaAdjacencia {
 
     public lista_ponderado.ListaAdjacencia listaPonderado = new lista_ponderado.ListaAdjacencia();
 
-    private int size = getSize();
-
     public void listaNaoOrientada() {
         int op = 0;
         while (op == 0) {
@@ -138,6 +136,10 @@ public class GrafoListaAdjacencia {
 
     public void imprimirLista() {
         lista.exibir();
+    }
+
+    public void imprimirListaBusca() {
+        lista.exibirBusca();
     }
 
     public void info() {
@@ -362,10 +364,10 @@ public class GrafoListaAdjacencia {
     }
 
     //tamanmho grafo
-    private int getSize() {
+    public int size() {
         NoAdjacencia aux = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
-            return 0;
+            System.err.println("Fila vazia");
         }
         int cont = 0;
         while (aux != null) {
@@ -373,9 +375,5 @@ public class GrafoListaAdjacencia {
             aux = aux.getProx();
         }
         return cont;
-    }
-
-    public int size(){
-        return this.size;
     }
 }
