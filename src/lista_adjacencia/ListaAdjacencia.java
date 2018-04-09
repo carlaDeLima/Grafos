@@ -85,4 +85,16 @@ public class ListaAdjacencia {
         this.ultimo = ultimo;
     }
 
+    ////Busca////
+    public ListaSecundariaAdjacencia buscarListaSecundaria(int vertice) {
+        NoAdjacencia aux = primeiro;
+        while (aux != null) {
+            if (aux.getValor() == vertice) {
+                return aux.getLista();
+            }
+            aux = aux.getProx();
+        }
+        return null;
+    }
+
 }

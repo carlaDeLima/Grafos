@@ -1,6 +1,6 @@
 package busca_largura;
 
-import lista_adjacencia.GrafoListaAdjacencia;
+import lista_adjacencia.*;
 
 public class BuscaLargura {
     private Cor cor[];
@@ -28,23 +28,26 @@ public class BuscaLargura {
         distancia[s] = 0;
         pai[s] = null;
         fila.inserirFinal(s);
-       /* //g.lista.buscarVerticeNumero(s, g.lista.getPrimeiro().getValor());
         while (fila.getPrimeiro() != null) {
-            int aux = fila.getPrimeiro().getValor();
-
+            int auxValor = fila.getPrimeiro().getValor();
+            ListaAdjacencia listaAdjacencia = grafoAux.lista;
+            ListaSecundariaAdjacencia listaSecundariaAdjacencia = grafoAux.lista
+                    .buscarListaSecundaria(auxValor);
             fila.removerInicio();
-            for (int v = 0; v < g.listaSecundariaAdjacencia.size(); v++) {
-//                g.lista.buscarVerticeNumero(aux,);
-//                if (v+1)
-                if (cor[v] == Cor.WHITE) {
-                    cor[v] = Cor.GRAY;
-                    distancia[v] = distancia[u] + 1;
-                    pai[v] = u;
-                    fila.inserirFinal(v);
+
+            NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
+                while (aux != null) {
+                    if (cor[aux.getValor()-1] == Cor.WHITE) {
+                        cor[aux.getValor()-1] = Cor.GRAY;
+                        distancia[aux.getValor()-1] = distancia[auxValor] + 1;
+                        pai[aux.getValor()-1] = auxValor;
+                        fila.inserirFinal(aux.getValor());
+                    }
+                    aux = aux.getProx();
                 }
-            }
-            cor[u] = Cor.BLACK;
-        }*/
+
+            cor[auxValor] = Cor.BLACK;
+        }
         imprimir(g);
     }
 
@@ -76,3 +79,7 @@ public class BuscaLargura {
     }
 
 }
+//      1       2       3       4       5
+//C     B       B       B       B       B
+//D     2       1       0       1       2
+//P     2       3       N       3       2
