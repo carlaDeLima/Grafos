@@ -3,6 +3,7 @@ package lista_adjacencia;
 public class NoListaSecundariaAdjacencia {
 
     private int valor;
+    private int posicao;
     private NoListaSecundariaAdjacencia prox;
 
     public NoListaSecundariaAdjacencia(int valor) {
@@ -26,4 +27,11 @@ public class NoListaSecundariaAdjacencia {
         this.prox = prox;
     }
 
+    public int getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(int posicao) {
+        this.posicao = posicao;
+    }
 }
