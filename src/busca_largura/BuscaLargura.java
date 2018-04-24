@@ -38,11 +38,11 @@ public class BuscaLargura {
             fila.removerInicio();
             NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
             while (aux != null) {
-                if (cor[aux.getValor()] == Cor.WHITE) {
-                    cor[aux.getValor()] = Cor.GRAY;
-                    distancia[aux.getValor()] = distancia[auxValor] + 1;
-                    pai[aux.getValor()] = auxValor + 1;
-                    fila.inserirFinal(aux.getValor());
+                if (cor[aux.getValor().getValor()] == Cor.WHITE) {
+                    cor[aux.getValor().getValor()] = Cor.GRAY;
+                    distancia[aux.getValor().getValor()] = distancia[auxValor] + 1;
+                    pai[aux.getValor().getValor()] = auxValor + 1;
+                    fila.inserirFinal(aux.getValor().getValor());
                 }
                 aux = aux.getProx();
                 imprimir(g);
