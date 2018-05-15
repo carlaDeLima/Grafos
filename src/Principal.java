@@ -94,7 +94,7 @@ public class Principal {
                     BuscaLargura buscaLargura = new BuscaLargura();
                     System.out.println("Informe vertice inicial: ");
                     int vertice = scanner.nextInt();
-                    buscaLargura.buscar(grafoListaAdjacencia, vertice);
+                    buscaLargura.buscar(grafoListaAdjacencia, vertice - 1);
                     //buscaLargura.imprimir();
                     break;
                 case 0:
@@ -196,6 +196,7 @@ public class Principal {
         System.out.println("Imprimir lista_adjacencia - 4");
         System.out.println("Informações que o grafo pode dar - 5");
         System.out.println("Busca em largura - 6");
+        System.out.println("Busca em profundidade - 6");
         System.out.println("voltar menu principal - 0");
         opListaAdjacencia = scanner.nextInt();
         return opListaAdjacencia;

@@ -27,7 +27,7 @@ public class ListaAdjacencia {
             System.err.println("Lista vazia");
         }
         while (aux != null) {
-            System.out.println(aux + " ");
+            System.out.println(aux.getValor() + " ");
             aux.getLista().exibir();
             aux = aux.getProx();
         }
@@ -56,11 +56,11 @@ public class ListaAdjacencia {
         return false;
     }
 
-    public NoAdjacencia buscaVertice(int vertice) {
+    public Integer buscaVertice(Integer vertice) {
         NoAdjacencia aux = primeiro;
         while (aux != null) {
             if (aux.getValor() == vertice) {
-                return aux;
+                return aux.getValor();
             }
             aux = aux.getProx();
         }

@@ -2,20 +2,20 @@ package lista_adjacencia;
 
 public class NoListaSecundariaAdjacencia {
 
-    private NoAdjacencia valor;
+    private Integer valor;
     private int posicao;
     private NoListaSecundariaAdjacencia prox;
 
-    public NoListaSecundariaAdjacencia(NoAdjacencia valor) {
+    public NoListaSecundariaAdjacencia(Integer valor) {
         this.valor = valor;
         this.prox = null;
     }
 
-    public NoAdjacencia getValor() {
+    public Integer getValor() {
         return valor;
     }
 
-    public void setValor(NoAdjacencia valor) {
+    public void setValor(Integer valor) {
         this.valor = valor;
     }
 
