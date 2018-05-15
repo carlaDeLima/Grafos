@@ -1,4 +1,5 @@
 import busca_largura.BuscaLargura;
+import busca_profundidade.BuscaProfundidade;
 import lista_adjacencia.GrafoListaAdjacencia;
 import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
@@ -93,9 +94,14 @@ public class Principal {
                 case 6://busca em largura
                     BuscaLargura buscaLargura = new BuscaLargura();
                     System.out.println("Informe vertice inicial: ");
-                    int vertice = scanner.nextInt();
-                    buscaLargura.buscar(grafoListaAdjacencia, vertice);
-                    //buscaLargura.imprimir();
+                    int verticeBL = scanner.nextInt();
+                    buscaLargura.buscar(grafoListaAdjacencia, verticeBL);
+                    break;
+                case 7://busca em profundidade
+                    BuscaProfundidade buscaProfundidade = new BuscaProfundidade();
+                    System.out.println("Informe vertice inicial: ");
+                    int verticeBP = scanner.nextInt();
+                    buscaProfundidade.buscar(grafoListaAdjacencia, verticeBP);
                     break;
                 case 0:
                     continuarOp2 = 0;
@@ -196,6 +202,7 @@ public class Principal {
         System.out.println("Imprimir lista_adjacencia - 4");
         System.out.println("Informações que o grafo pode dar - 5");
         System.out.println("Busca em largura - 6");
+        System.out.println("Busca em profundidade - 7");
         System.out.println("voltar menu principal - 0");
         opListaAdjacencia = scanner.nextInt();
         return opListaAdjacencia;
