@@ -34,22 +34,22 @@ public class BuscaLargura {
             int auxValor = fila.getPrimeiro().getValor();
             ListaAdjacencia listaAdjacencia = grafoAux.lista;
             ListaSecundariaAdjacencia listaSecundariaAdjacencia = listaAdjacencia
-                    .buscarListaSecundaria(auxValor);
+                    .buscarListaSecundaria(auxValor + 1);
             fila.removerInicio();
             NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
             while (aux != null) {
-                if (cor[aux.getValor().getValor()] == Cor.WHITE) {
-                    cor[aux.getValor().getValor()] = Cor.GRAY;
-                    distancia[aux.getValor().getValor()] = distancia[auxValor] + 1;
-                    pai[aux.getValor().getValor()] = auxValor + 1;
-                    fila.inserirFinal(aux.getValor().getValor());
+                if (cor[aux.getValor() - 1] == Cor.WHITE) {
+                    cor[aux.getValor() - 1] = Cor.GRAY;
+                    distancia[aux.getValor() - 1] = distancia[auxValor] + 1;
+                    pai[aux.getValor() - 1] = auxValor + 1;
+                    fila.inserirFinal(aux.getValor() - 1);
                 }
                 aux = aux.getProx();
                 imprimir(g);
             }
             cor[auxValor] = Cor.BLACK;
         }
-        //imprimir(g);
+        imprimir(g);
     }
 
     public void imprimir(GrafoListaAdjacencia gAux) {

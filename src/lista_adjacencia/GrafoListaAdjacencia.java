@@ -31,7 +31,7 @@ public class GrafoListaAdjacencia {
                     System.out.println("Inserir vertice: ");
                     valorListaMatriz = scanner.nextInt();
                 }
-                //listaMatriz.inserirFinal(valorListaMatriz);
+                listaMatriz.inserirFinal(valorListaMatriz);
                 grauVertice--;
             }
             aux.setLista(listaMatriz);
@@ -94,7 +94,7 @@ public class GrafoListaAdjacencia {
                     valorListaMatriz = scanner.nextInt();
                 }
 
-                listaMatriz.inserirFinal(lista.buscaVertice(valorListaMatriz));
+                listaMatriz.inserirFinal(valorListaMatriz);
                 qtde--;
             }
             aux.setLista(listaMatriz);
@@ -200,7 +200,7 @@ public class GrafoListaAdjacencia {
         if (lista.getPrimeiro() == null) {
             System.err.println("Fila vazia");
         } else {
-            int valor = lista.getPrimeiro().getLista().getPrimeiro().getValor().getValor();
+            int valor = lista.getPrimeiro().getLista().getPrimeiro().getValor();
             if (!lista.buscarVerticeNumero(valor, lista.getPrimeiro().getValor())) {
                 System.out.println("Grafo Orientado");
                 qtdeArestasOrientado();
@@ -348,7 +348,7 @@ public class GrafoListaAdjacencia {
                 return;
             }
             while (aux != null) {
-                if (aux.getValor().getValor() == aux1.getValor()) {
+                if (aux.getValor() == aux1.getValor()) {
                     contLacos++;
                 }
                 aux = aux.getProx();

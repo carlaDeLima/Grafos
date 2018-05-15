@@ -27,7 +27,7 @@ public class ListaAdjacencia {
             System.err.println("Lista vazia");
         }
         while (aux != null) {
-            System.out.println(aux + " ");
+            System.out.println(aux.getValor() + " ");
             aux.getLista().exibir();
             aux = aux.getProx();
         }
