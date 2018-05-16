@@ -93,8 +93,8 @@ public class GrafoListaAdjacencia {
                     System.err.println("Inserir vertice: ");
                     valorListaMatriz = scanner.nextInt();
                 }
+
                 listaMatriz.inserirFinal(valorListaMatriz);
-                //listaMatriz.inserirFinal(lista.buscaVertice(valorListaMatriz));
                 qtde--;
             }
             aux.setLista(listaMatriz);
