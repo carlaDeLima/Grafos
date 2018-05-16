@@ -36,9 +36,6 @@ public class Lista {
         }
         while (aux != null) {
             System.out.println(aux.getColor() + " ");
-            /*if (aux.getProx() != null){
-                System.out.println(aux.getProx().getColor() + " ");
-            }*/
             aux = aux.getProx();
         }
     }

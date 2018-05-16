@@ -1,6 +1,9 @@
 package busca_largura;
 
-import lista_adjacencia.*;
+import lista_adjacencia.GrafoListaAdjacencia;
+import lista_adjacencia.ListaAdjacencia;
+import lista_adjacencia.ListaSecundariaAdjacencia;
+import lista_adjacencia.NoListaSecundariaAdjacencia;
 
 public class BuscaLargura {
     private Cor cor[];
@@ -69,17 +72,14 @@ public class BuscaLargura {
         System.out.print("D\t|\t");
         for (int i = 0; i < distancia.length; i++) {
             if (distancia[i] == Integer.MAX_VALUE) {
-                //System.out.print("dis[" + i + "] = INF\t");
                 System.out.print("INF\t\t|\t");
             } else {
-                //System.out.print("dis[" + i + "] = " + distancia[i] + "\t");
                 System.out.print(distancia[i] + "\t\t|\t");
             }
         }
         System.out.println();
         System.out.print("P\t|\t");
         for (int i = 0; i < pai.length; i++) {
-            //System.out.print("pai[" + i + "] = " + pai[i] + "\t");
             System.out.print(pai[i] + "\t|\t");
         }
         System.out.println();

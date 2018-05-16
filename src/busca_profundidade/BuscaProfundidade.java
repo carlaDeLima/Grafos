@@ -13,9 +13,8 @@ public class BuscaProfundidade {
     private Integer tempoFinal[];
     private GrafoListaAdjacencia grafoAux;
 
-    public void buscar(GrafoListaAdjacencia g, int verticeIncial){
+    public void buscar(GrafoListaAdjacencia g, int verticeIncial) {
         grafoAux = g;
-        //verticeIncial = verticeIncial - 1;
 
         cor = new Cor[g.size()];
         pai = new Integer[g.size()];
@@ -26,16 +25,19 @@ public class BuscaProfundidade {
             cor[i] = Cor.WHITE;
             pai[i] = null;
         }
+
         tempo = 0;
+
         for (int i = 0; i < g.size(); i++) {
-            if (cor[i] == Cor.WHITE){
+            if (cor[i] == Cor.WHITE) {
                 DFS_VISIT(i);
             }
         }
+
         imprimir();
     }
 
-    private void DFS_VISIT(Integer i){
+    private void DFS_VISIT(Integer i) {
         cor[i] = Cor.GRAY;
         tempo++;
         tempoInicial[i] = tempo;
@@ -45,7 +47,7 @@ public class BuscaProfundidade {
 
         NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
         while (aux != null) {
-            if (cor[aux.getValor() - 1] == Cor.WHITE){
+            if (cor[aux.getValor() - 1] == Cor.WHITE) {
                 pai[aux.getValor() - 1] = i + 1;
                 DFS_VISIT(aux.getValor() - 1);
             }
@@ -56,7 +58,7 @@ public class BuscaProfundidade {
         tempo++;
     }
 
-    private void imprimir(){
+    private void imprimir() {
         System.out.print("C\t|\t");
         for (int i = 0; i < cor.length; i++) {
             System.out.print(cor[i] + "\t|\t");
@@ -64,7 +66,6 @@ public class BuscaProfundidade {
         System.out.println();
         System.out.print("P\t|\t");
         for (int i = 0; i < pai.length; i++) {
-            //System.out.print("pai[" + i + "] = " + pai[i] + "\t");
             System.out.print(pai[i] + "\t|\t");
         }
         System.out.println();
@@ -78,6 +79,5 @@ public class BuscaProfundidade {
             System.out.print(tempoFinal[i] + "\t|\t");
         }
         System.out.println();
-
     }
 }

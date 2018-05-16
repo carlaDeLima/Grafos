@@ -5,8 +5,6 @@ public class ListaSecundariaAdjacencia {
     private NoListaSecundariaAdjacencia primeiro;
     private NoListaSecundariaAdjacencia ultimo;
 
-    private int size = getSize();
-
     public ListaSecundariaAdjacencia() {
         this.primeiro = null;
     }
@@ -76,25 +74,4 @@ public class ListaSecundariaAdjacencia {
         }
         return cont;
     }
-
-    //posições de cada vertice
-    private int [] getPosicao() {
-        int [] posicao = new int[getSize()];
-        NoListaSecundariaAdjacencia aux = primeiro;
-        int cont = 0;
-        if (primeiro == null) {
-            posicao[cont] = cont;
-        }
-        while (aux != null) {
-            posicao[cont] = cont;
-            cont++;
-            aux = aux.getProx();
-        }
-        return posicao;
-    }
-
-    public int size() {
-        return this.size;
-    }
-
 }

@@ -7,7 +7,6 @@ public class GrafoListaAdjacencia {
 
     public ListaAdjacencia lista = new ListaAdjacencia();
     public ListaSecundariaAdjacencia listaSecundariaAdjacencia = new ListaSecundariaAdjacencia();
-
     public lista_ponderado.ListaAdjacencia listaPonderado = new lista_ponderado.ListaAdjacencia();
 
     public void listaNaoOrientada() {
@@ -206,7 +205,7 @@ public class GrafoListaAdjacencia {
                 qtdeArestasOrientado();
                 arcosOrientado();
                 qtdeFontesSumidouros();
-                //grau dos vertices
+                grauDosVertices();
             } else {
                 System.out.println("Grafo Não Orientado");
                 qtdeArestasNaoOrientado();
@@ -364,7 +363,6 @@ public class GrafoListaAdjacencia {
         }
     }
 
-    //tamanmho grafo
     public int size() {
         NoAdjacencia aux = lista.getPrimeiro();
         if (lista.getPrimeiro() == null) {
