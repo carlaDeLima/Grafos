@@ -1,5 +1,6 @@
 import busca_largura.BuscaLargura;
 import busca_profundidade.BuscaProfundidade;
+import disciplinas.PreencherMatriz;
 import lista_adjacencia.GrafoListaAdjacencia;
 import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
@@ -14,6 +15,9 @@ public class Principal {
 
     public static void main(String[] args) {
         int continuar = 0;
+
+        PreencherMatriz.criarDisciplinas();
+        PreencherMatriz.imprimirMatrizCurricular();
 
         while (continuar == 0) {
             getMenu();
