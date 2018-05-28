@@ -45,11 +45,11 @@ public class BuscaLargura {
             fila.removerInicio();
             NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
             while (aux != null) {
-                if (cor[aux.getValor() - 1] == Cor.WHITE) {
-                    cor[aux.getValor() - 1] = Cor.GRAY;
-                    distancia[aux.getValor() - 1] = distancia[auxValor] + 1;
-                    pai[aux.getValor() - 1] = auxValor + 1;
-                    fila.inserirFinal(aux.getValor() - 1);
+                if (cor[aux.getNoAdjacencia().getValor() - 1] == Cor.WHITE) {
+                    cor[aux.getNoAdjacencia().getValor() - 1] = Cor.GRAY;
+                    distancia[aux.getNoAdjacencia().getValor() - 1] = distancia[auxValor] + 1;
+                    pai[aux.getNoAdjacencia().getValor() - 1] = auxValor + 1;
+                    fila.inserirFinal(aux.getNoAdjacencia().getValor() - 1);
                 }
                 aux = aux.getProx();
 

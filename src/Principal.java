@@ -1,6 +1,6 @@
 import busca_largura.BuscaLargura;
 import busca_profundidade.BuscaProfundidade;
-import disciplinas.PreencherMatriz;
+import disciplinas.PreencherMatrizCurricular;
 import lista_adjacencia.GrafoListaAdjacencia;
 import lista_indexada.GrafoListaIndexada;
 import matriz.GrafoMatrizAdjacencia;
@@ -15,9 +15,6 @@ public class Principal {
 
     public static void main(String[] args) {
         int continuar = 0;
-
-        PreencherMatriz.criarDisciplinas();
-        PreencherMatriz.imprimirMatrizCurricular();
 
         while (continuar == 0) {
             getMenu();
@@ -78,22 +75,27 @@ public class Principal {
         int continuarOp2 = 1;
         GrafoListaAdjacencia grafoListaAdjacencia = new GrafoListaAdjacencia();
         while (continuarOp2 == 1) {
+
+            //adicionando as disciplinas no grafo
+            grafoListaAdjacencia.preencherGrafo();
+            /////////////////////////////////////
+
             int opListaAdjacencia = menuListaAdjacencia();
             switch (opListaAdjacencia) {
                 case 1:
-                    grafoListaAdjacencia.listaNaoOrientada();
+                    //grafoListaAdjacencia.listaNaoOrientada();
                     break;
                 case 2:
-                    grafoListaAdjacencia.listaOrientada();
+                    //grafoListaAdjacencia.listaOrientada();
                     break;
                 case 3:
-                    grafoListaAdjacencia.listaOrientadaPonderada();
+                    //grafoListaAdjacencia.listaOrientadaPonderada();
                     break;
                 case 4:
                     grafoListaAdjacencia.imprimirLista();
                     break;
                 case 5:
-                    grafoListaAdjacencia.info();
+                    //grafoListaAdjacencia.info();
                     break;
                 case 6://busca em largura
                     BuscaLargura buscaLargura = new BuscaLargura();

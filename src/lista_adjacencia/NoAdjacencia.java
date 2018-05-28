@@ -1,13 +1,17 @@
 package lista_adjacencia;
 
+import disciplinas.Disciplina;
+
 public class NoAdjacencia {
 
     private int valor;
+    private Disciplina disciplina;
     private ListaSecundariaAdjacencia lista;
     private NoAdjacencia prox;
 
-    public NoAdjacencia(int valor) {
+    public NoAdjacencia(int valor, Disciplina disciplina) {
         this.valor = valor;
+        this.disciplina = disciplina;
         this.lista = null;
         this.prox = null;
     }
@@ -18,6 +22,14 @@ public class NoAdjacencia {
 
     public void setValor(int valor) {
         this.valor = valor;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
     public ListaSecundariaAdjacencia getLista() {
@@ -35,5 +47,4 @@ public class NoAdjacencia {
     public void setProx(NoAdjacencia prox) {
         this.prox = prox;
     }
-
 }

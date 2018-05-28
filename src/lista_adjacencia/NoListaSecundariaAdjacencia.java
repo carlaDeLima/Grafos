@@ -2,29 +2,21 @@ package lista_adjacencia;
 
 public class NoListaSecundariaAdjacencia {
 
-    private Integer valor;
-    private int posicao;
+    //private Disciplina disciplina;
+    private NoAdjacencia disciplina;
     private NoListaSecundariaAdjacencia prox;
 
-    public NoListaSecundariaAdjacencia(Integer valor) {
-        this.valor = valor;
+    public NoListaSecundariaAdjacencia(NoAdjacencia disciplina) {
+        this.disciplina = disciplina;
         this.prox = null;
     }
 
-    public Integer getValor() {
-        return valor;
+    public NoAdjacencia getNoAdjacencia() {
+        return disciplina;
     }
 
-    public void setValor(Integer valor) {
-        this.valor = valor;
-    }
-
-    public int getPosicao() {
-        return posicao;
-    }
-
-    public void setPosicao(int posicao) {
-        this.posicao = posicao;
+    public void setNoAdjacencia(NoAdjacencia disciplina) {
+        this.disciplina = disciplina;
     }
 
     public NoListaSecundariaAdjacencia getProx() {

@@ -3,9 +3,17 @@ package disciplinas;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreencherMatriz {
+public class PreencherMatrizCurricular {
 
     protected static List<Disciplina> disciplinas = new ArrayList<>();
+
+    public static List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public static void setDisciplinas(List<Disciplina> disciplinas) {
+        PreencherMatrizCurricular.disciplinas = disciplinas;
+    }
 
     public static void criarDisciplinas() {
         semestre1();
@@ -24,23 +32,23 @@ public class PreencherMatriz {
         disciplinas.add(new Disciplina("N534", 8, "GERENCIA DE PROJETOS", getDisciplina("N562")));
         disciplinas.add(new Disciplina("N589", 8, "PROCESSAMENTO DE IMAGENS", getDisciplina("N094"), getDisciplina("N512")));
         disciplinas.add(new Disciplina("N597", 8, "TRABALHO CONCLUSAO DE CURSO II", getDisciplina("N596")));
-        disciplinas.add(new Disciplina("N598", 8, "SISTEMAS DISTRIBUIDOS", getDisciplina("N562"), getDisciplina("N594")));
+        disciplinas.add(new Disciplina("N598", 8, "SISTEMAS DISTRIBUIDOS", getDisciplina("N562"), getDisciplina("T958")));
     }
 
     private static void semestre7() {
         //7º Semestre (6)
         disciplinas.add(new Disciplina("N517", 7, "ENGENHARIA DE SOFTWARE", getDisciplina("N562")));
         disciplinas.add(new Disciplina("N519", 7, "INTELIGENCIA ARTIFICIAL", getDisciplina("N097"), getDisciplina("N593"), getDisciplina("N584")));
-        disciplinas.add(new Disciplina("N521", 7, "COMPUTACAO GRAFICA", getDisciplina("N105"), getDisciplina("N524")));
+        disciplinas.add(new Disciplina("N521", 7, "COMPUTACAO GRAFICA", getDisciplina("N617"), getDisciplina("N524")));
         disciplinas.add(new Disciplina("N588", 7, "COMPUTABILIDADE", getDisciplina("N587")));
-        disciplinas.add(new Disciplina("N595", 7, "REDES DE COMPUTADORES II", getDisciplina("N594")));
-        disciplinas.add(new Disciplina("N596", 7, "TRABALHO CONCLUSAO CURSO I", getDisciplina("N539"), getDisciplina("N421"), getDisciplina("N594"), getDisciplina("N592")));
+        disciplinas.add(new Disciplina("N595", 7, "REDES DE COMPUTADORES II", getDisciplina("T958")));
+        disciplinas.add(new Disciplina("N596", 7, "TRABALHO CONCLUSAO CURSO I", getDisciplina("N421"), getDisciplina("N592"), getDisciplina("T958"), getDisciplina("N672")));
     }
 
     private static void semestre6() {
         //6º Semestre (5)
-        disciplinas.add(new Disciplina("N562", 6, "ANALISE E PROJETO SISTEMAS II", getDisciplina("N539")));
-        disciplinas.add(new Disciplina("N564", 6, "PESQUISA OPERACIONAL", getDisciplina("N105")));
+        disciplinas.add(new Disciplina("N562", 6, "ANALISE E PROJETO SISTEMAS II", getDisciplina("N672")));
+        disciplinas.add(new Disciplina("N564", 6, "PESQUISA OPERACIONAL", getDisciplina("N617")));
         disciplinas.add(new Disciplina("N587", 6, "TEORIA DOS AUT E LING FORMAIS", getDisciplina("N097"), getDisciplina("N583")));
         disciplinas.add(new Disciplina("N593", 6, "PARADIGMAS DE LING PROGRAMACAO", getDisciplina("N512")));
         disciplinas.add(new Disciplina("T958", 6, "REDES DE COMPUTADORES", getDisciplina("T952")));

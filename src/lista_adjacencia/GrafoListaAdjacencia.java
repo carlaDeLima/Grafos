@@ -1,5 +1,10 @@
 package lista_adjacencia;
 
+import disciplinas.Disciplina;
+import disciplinas.PreencherMatrizCurricular;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GrafoListaAdjacencia {
@@ -9,7 +14,34 @@ public class GrafoListaAdjacencia {
     public ListaSecundariaAdjacencia listaSecundariaAdjacencia = new ListaSecundariaAdjacencia();
     public lista_ponderado.ListaAdjacencia listaPonderado = new lista_ponderado.ListaAdjacencia();
 
-    public void listaNaoOrientada() {
+    public void preencherGrafo() {
+        PreencherMatrizCurricular.criarDisciplinas();
+        List<Disciplina> disciplinas = PreencherMatrizCurricular.getDisciplinas();
+        for (int i = 0; i < disciplinas.size(); i++) {
+            lista.inserirFinal(i+1, disciplinas.get(i));
+        }
+        NoAdjacencia aux = lista.getPrimeiro();
+        while (aux != null) {
+            ListaSecundariaAdjacencia lsa = new ListaSecundariaAdjacencia();
+            List<NoAdjacencia> noAdjacencias = new ArrayList<>();
+            noAdjacencias = lista.busarNoAdjacencia(aux.getDisciplina().getCodigo());
+            for (int i = 0; i < noAdjacencias.size(); i++) {
+                lsa.inserirFinal(noAdjacencias.get(i));
+            }
+            aux.setLista(lsa);
+            aux = aux.getProx();
+        }
+    }
+
+    public void imprimirLista() {
+        lista.exibir();
+    }
+
+    public void imprimirListaBusca() {
+        lista.exibirBusca();
+    }
+
+    /*public void listaNaoOrientada() {
         int op = 0;
         while (op == 0) {
             System.out.println("Inserir vertice: ");
@@ -132,15 +164,7 @@ public class GrafoListaAdjacencia {
             aux.setLista(listaMatriz);
             aux = aux.getProx();
         }
-    }
-
-    public void imprimirLista() {
-        lista.exibir();
-    }
-
-    public void imprimirListaBusca() {
-        lista.exibirBusca();
-    }
+    }*/
 
     public void info() {
         ordemGrafo();
@@ -199,7 +223,7 @@ public class GrafoListaAdjacencia {
         if (lista.getPrimeiro() == null) {
             System.err.println("Fila vazia");
         } else {
-            int valor = lista.getPrimeiro().getLista().getPrimeiro().getValor();
+            int valor = lista.getPrimeiro().getLista().getPrimeiro().getNoAdjacencia().getValor();
             if (!lista.buscarVerticeNumero(valor, lista.getPrimeiro().getValor())) {
                 System.out.println("Grafo Orientado");
                 qtdeArestasOrientado();
@@ -249,7 +273,7 @@ public class GrafoListaAdjacencia {
                 System.err.println("null");
             }
             while (aux2 != null) {
-                System.out.printf("(%d -> %d)\n", aux1.getValor(), aux2.getValor());
+                System.out.printf("(%d -> %d)\n", aux1.getValor(), aux2.getNoAdjacencia().getValor());
                 aux2 = aux2.getProx();
             }
             aux1 = aux1.getProx();
@@ -267,7 +291,7 @@ public class GrafoListaAdjacencia {
                 System.err.println("null");
             }
             while (aux2 != null) {
-                System.out.printf("(%d, %d)\n", aux1.getValor(), aux2.getValor());
+                System.out.printf("(%d, %d)\n", aux1.getValor(), aux2.getNoAdjacencia().getValor());
                 aux2 = aux2.getProx();
             }
             aux1 = aux1.getProx();
@@ -347,7 +371,7 @@ public class GrafoListaAdjacencia {
                 return;
             }
             while (aux != null) {
-                if (aux.getValor() == aux1.getValor()) {
+                if (aux.getNoAdjacencia().getValor() == aux1.getValor()) {
                     contLacos++;
                 }
                 aux = aux.getProx();

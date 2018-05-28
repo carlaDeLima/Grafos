@@ -47,9 +47,9 @@ public class BuscaProfundidade {
 
         NoListaSecundariaAdjacencia aux = listaSecundariaAdjacencia.getPrimeiro();
         while (aux != null) {
-            if (cor[aux.getValor() - 1] == Cor.WHITE) {
-                pai[aux.getValor() - 1] = i + 1;
-                DFS_VISIT(aux.getValor() - 1);
+            if (cor[aux.getNoAdjacencia().getValor() - 1] == Cor.WHITE) {
+                pai[aux.getNoAdjacencia().getValor() - 1] = i + 1;
+                DFS_VISIT(aux.getNoAdjacencia().getValor() - 1);
             }
             aux = aux.getProx();
         }

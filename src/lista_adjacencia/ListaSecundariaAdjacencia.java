@@ -9,8 +9,8 @@ public class ListaSecundariaAdjacencia {
         this.primeiro = null;
     }
 
-    void inserirFinal(Integer valor) {
-        NoListaSecundariaAdjacencia novo = new NoListaSecundariaAdjacencia(valor);
+    void inserirFinal(NoAdjacencia disciplina) {
+        NoListaSecundariaAdjacencia novo = new NoListaSecundariaAdjacencia(disciplina);
 
         if (primeiro == null) {
             primeiro = novo;
@@ -27,7 +27,7 @@ public class ListaSecundariaAdjacencia {
             System.err.println("null");
         }
         while (aux != null) {
-            System.err.print(aux.getValor() + " ");
+            System.err.print(aux.getNoAdjacencia().getDisciplina().getNome() + " ");
             aux = aux.getProx();
         }
         System.out.println();
@@ -37,7 +37,7 @@ public class ListaSecundariaAdjacencia {
     public boolean buscarVertice(int vertice) {
         NoListaSecundariaAdjacencia aux = primeiro;
         while (aux != null) {
-            if (aux.getValor() == vertice) {
+            if (aux.getNoAdjacencia().getValor() == vertice) {
                 return true;
             }
             aux = aux.getProx();

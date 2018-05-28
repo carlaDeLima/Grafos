@@ -1,5 +1,10 @@
 package lista_adjacencia;
 
+import disciplinas.Disciplina;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListaAdjacencia {
 
     private NoAdjacencia primeiro;
@@ -9,8 +14,8 @@ public class ListaAdjacencia {
         this.primeiro = null;
     }
 
-    void inserirFinal(int valor) {
-        NoAdjacencia novo = new NoAdjacencia(valor);
+    void inserirFinal(int valor, Disciplina disciplina) {
+        NoAdjacencia novo = new NoAdjacencia(valor, disciplina);
 
         if (primeiro == null) {
             primeiro = novo;
@@ -27,7 +32,7 @@ public class ListaAdjacencia {
             System.err.println("Lista vazia");
         }
         while (aux != null) {
-            System.out.println(aux.getValor() + " ");
+            System.out.println(aux.getDisciplina().getNome() + " ");
             aux.getLista().exibir();
             aux = aux.getProx();
         }
@@ -40,9 +45,26 @@ public class ListaAdjacencia {
         }
         System.out.print("\t|");
         while (aux != null) {
-            System.out.print("\t" + aux.getValor() + "\t\t|");
+            System.out.print("\t" + aux.getDisciplina().getNome() + "\t\t|");
             aux = aux.getProx();
         }
+    }
+
+    public List<NoAdjacencia> busarNoAdjacencia(String codigo) {
+        List<NoAdjacencia> auxList = new ArrayList<>();
+        NoAdjacencia aux = primeiro;
+        if (primeiro == null) {
+            System.err.println("Lista vazia");
+        }
+        while (aux != null) {
+            for (int i = 0; i < aux.getDisciplina().getPreRequisitos().length; i++) {
+                if (codigo.equals(aux.getDisciplina().getPreRequisitos()[i].getCodigo())){
+                    auxList.add(aux);
+                }
+            }
+            aux = aux.getProx();
+        }
+        return auxList;
     }
 
     public boolean buscarVertice(int vertice) {
